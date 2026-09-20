@@ -430,12 +430,27 @@
 
   fetch(DATA_URL + "?t=" + Date.now(), { cache: "no-store" })
     .then(function (res) {
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      return res.json();
+      if (!res.ok) {
+        throw new Error("The server answered " + res.status + " for " + DATA_URL + ". The file is missing or in the wrong folder. Folder and file names are case-sensitive on GitHub Pages.");
+      }
+      return res.json().catch(function () {
+        throw new Error(DATA_URL + " was found but isn't valid JSON. Paste it into a JSON validator to find the broken line.");
+      });
     })
-    .then(render)
-    .catch(function () {
-      fail("Couldn't load data/latest.json. If you opened this file straight from your computer, serve the folder instead (for example with python3 -m http.server). If it's on GitHub Pages, check that the file exists and is valid JSON.");
+    .then(function (data) {
+      try { render(data); }
+      catch (e) {
+        throw new Error("The data loaded but a story couldn't be displayed (" + e.message + "). Check that every story has the fields listed in HERMES_TASK.md.");
+      }
+    })
+    .catch(function (err) {
+      if (location.protocol === "file:") {
+        fail("This page can't load its data when opened straight from disk. Open your GitHub Pages address instead, or serve the folder locally.");
+      } else if (err instanceof TypeError) {
+        fail("Couldn't reach " + DATA_URL + ". Check your connection and reload.");
+      } else {
+        fail((err && err.message) || "Couldn't load " + DATA_URL + ".");
+      }
     });
 })();
 </script>
