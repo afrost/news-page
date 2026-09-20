@@ -1,104 +1,125 @@
 {
-  "sample": true,
-  "site_title": "Le Petit Pixel",
+  "site_title": "My Rabbit Hole",
   "date": "2026-09-20",
-  "generated_at": "2026-09-20T07:00:00+05:30",
+  "generated_at": "2026-09-20T17:12:29+05:30",
   "lesson": {
-    "title": "Expliquer avec parce que, donc et c'est pourquoi",
+    "title": "La négation avec « jamais » (ne ... jamais : \"to never ...\")",
     "explanation": [
-      "Use parce que to give a cause, and donc or c'est pourquoi to show the result. The cause comes first with donc; it can come second with parce que."
+      "Today's texts use a simple and useful negative: ne ... jamais, which means \"never\". It appears in the French versions of our stories: \"Livana ne remplacera jamais le professionnel\" (Livana will never replace the professional).",
+      "In French, most negatives have two parts that go around the verb: ne (or n' before a vowel) comes before the verb, and the negative word comes after it. So ne ... jamais = never, ne ... plus = no longer, ne ... rien = nothing, ne ... pas = not."
     ],
     "examples": [
-      { "fr": "Je reste à la maison parce qu'il pleut.", "en": "I'm staying home because it's raining." },
-      { "fr": "Il pleut, donc je reste à la maison.", "en": "It's raining, so I'm staying home." },
-      { "fr": "Il pleut. C'est pourquoi je reste à la maison.", "en": "It's raining. That's why I'm staying home." }
+      { "fr": "Je ne parle jamais anglais avec ma grand-mère.", "en": "I never speak English with my grandmother." },
+      { "fr": "L'IA ne remplacera jamais les liens entre les humains.", "en": "AI will never replace the links between humans." },
+      { "fr": "Nous n'avons jamais visité le pôle Nord.", "en": "We have never visited the North Pole." }
     ],
     "exercise": {
-      "question": "Complète : Elle est fatiguée, ___ elle se couche tôt.",
-      "answer": "donc (ou : c'est pourquoi elle se couche tôt)"
+      "question": "Complète avec jamais ou pas : Ce robot ne remplacera ___ le soignant.",
+      "answer": "jamais (Ce robot ne remplacera jamais le soignant.)"
     }
   },
   "stories": [
     {
-      "section": "Culture",
-      "headline": "Neighbourhood libraries are becoming the new town squares",
-      "dek": "Book loans are flat, but visits are up. People come for the quiet, the warmth and each other.",
-      "source": "Sample Source",
-      "url": "https://example.com/",
-      "image": "",
-      "image_alt": "",
-      "image_credit": "",
-      "body": [
-        "Across the country, local libraries report something unexpected. Fewer people borrow books than ten years ago, yet more people walk through the doors every week.",
-        "Librarians say the change is simple. Visitors now come to work on laptops, attend language classes, use the printers or just sit somewhere warm that does not ask them to buy anything.",
-        "Councils are responding by moving shelves aside to make room for meeting tables and small workshop spaces. Some branches now stay open into the evening for the first time."
-      ],
-      "french": {
-        "headline": "Les bibliothèques de quartier changent",
-        "summary": [
-          "Aujourd'hui, les gens empruntent moins de livres. Mais ils visitent la bibliothèque plus souvent.",
-          "Ils viennent pour travailler, pour apprendre une langue ou pour rester au chaud. Donc les villes changent les salles : il y a plus de tables et moins d'étagères."
-        ],
-        "vocab": [
-          { "fr": "emprunter", "en": "to borrow" },
-          { "fr": "une étagère", "en": "a shelf" },
-          { "fr": "au chaud", "en": "somewhere warm" },
-          { "fr": "un quartier", "en": "a neighbourhood" }
-        ]
-      }
-    },
-    {
       "section": "Technology",
-      "headline": "Cheap solar panels change how villages plan their power",
-      "dek": "Small communities are skipping the grid and building their own.",
-      "source": "Sample Source",
-      "url": "https://example.com/",
+      "headline": "Unsealed court papers show AI firms feared their own tools could destroy the news",
+      "dek": "Unsealed documents reveal how OpenAI and Microsoft privately described the harm they worried AI was doing to the news industry that feeds it.",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/",
       "image": "",
       "image_alt": "",
       "image_credit": "",
       "body": [
-        "In several remote regions, villages are choosing rooftop solar with shared batteries instead of waiting for a grid connection that may never arrive.",
-        "Falling panel prices are the main reason. A system that once needed a large subsidy can now be paid off by a group of households within a few years.",
-        "Engineers warn that maintenance is the real test. Panels last for decades, but batteries and inverters need trained people nearby to fix them."
+        "Unsealed court documents in the copyright case that The New York Times brought against OpenAI and Microsoft more than three years ago have revealed how the two companies talked about the news industry behind closed doors. A senior Microsoft researcher privately described the mass collection of articles to train artificial intelligence as \"the largest theft of labour in human history\". OpenAI's own head of ChatGPT wrote that tools like the chatbot were becoming a growing \"existential threat\" to publishers.",
+        "The filing claims that the companies built enormous training sets from news articles, in some cases finding ways around paywalls without being detected and stripping copyright notices from the data. It also says that Microsoft's AI-powered search sent visits to the Times' website down sharply, a decline the companies' own documents called a \"doom loop\" that could hurt publishers and the AI models themselves at the same time.",
+        "The case, which dates to 2023, is one of the biggest tests of whether using published work to train AI is legal. Nothing has been proved, and the companies argue their use counts as \"fair use\". But the documents show how central the question of who pays for the news has become to the future of the internet."
       ],
       "french": {
-        "headline": "Des villages produisent leur électricité",
-        "summary": [
-          "Les panneaux solaires coûtent moins cher. C'est pourquoi des villages installent leur propre système.",
-          "Ils n'attendent plus le réseau électrique. Mais il faut des techniciens pour réparer les batteries."
+        "headline": "Les documents d'un procès montrent la peur des entreprises d'IA",
+        "level": "A2-B1",
+        "body": [
+          "Un tribunal américain a rendu publics des documents d'un grand procès. Dans ce procès, The New York Times accuse OpenAI et Microsoft d'avoir utilisé ses articles pour entraîner leur intelligence artificielle (IA). Les documents montrent ce que les deux entreprises disaient en privé à propos de la presse.",
+          "Un chercheur important de Microsoft a décrit la collecte des articles comme \"le plus grand vol de travail de l'histoire\". Un responsable d'OpenAI a écrit que les robots comme ChatGPT pouvaient devenir un \"danger énorme\" pour les journaux.",
+          "Les documents affirment que les entreprises ont pris des millions d'articles, parfois en contournant les paywalls sans être vues. Ils disent aussi que la recherche avec IA de Microsoft a fait baisser fortement le nombre de visiteurs sur le site du Times.",
+          "Ce procès commence en 2023. Il pose une question importante : est-il légal d'utiliser le travail des journalistes pour entraîner une IA ? Rien n'est encore prouvé, et les entreprises disent que leur usage est légal. Mais ces documents montrent que la question de l'argent pour la presse est devenue centrale pour l'avenir d'internet."
         ],
         "vocab": [
-          { "fr": "un panneau solaire", "en": "a solar panel" },
-          { "fr": "le réseau", "en": "the grid" },
-          { "fr": "réparer", "en": "to repair" },
-          { "fr": "coûter moins cher", "en": "to cost less" }
+          { "fr": "un procès", "en": "a trial / a lawsuit" },
+          { "fr": "entraîner une IA", "en": "to train an AI" },
+          { "fr": "un journal", "en": "a newspaper" },
+          { "fr": "contourner un paywall", "en": "to get around a paywall" },
+          { "fr": "affirmer", "en": "to claim / to state" },
+          { "fr": "l'avenir", "en": "the future" }
         ]
       }
     },
     {
       "section": "Environment",
-      "headline": "A wet spring is changing what farmers plant this autumn",
-      "dek": "After months of rain, growers are switching crops to protect their income.",
-      "source": "Sample Source",
-      "url": "https://example.com/",
+      "headline": "A French floating lab will spend the winter locked in Arctic ice",
+      "dek": "The Arctic Ocean is warming three to four times faster than the rest of the planet, and this lab is being placed in the ice to study what that means.",
+      "source": "RFI",
+      "url": "https://rfi.fr/en/environment/20260918-locked-in-arctic-ice-the-floating-lab-studying-climate-and-wildlife",
       "image": "",
       "image_alt": "",
       "image_credit": "",
       "body": [
-        "Heavy spring rain left many fields too wet to sow on time. Farmers who planned one crop are now choosing another that can still ripen before the first frost.",
-        "Agricultural advisers recommend faster-growing varieties and better drainage. Several growers also say they will spread their risk across more crops next year."
+        "A French research station is drifting through the central Arctic Ocean, locked in the sea ice, where it will spend the whole winter. Named Tara Polaris I, the igloo-shaped vessel is part boat and part laboratory. It was built in the town of Cherbourg and left its home port of Lorient in July on its first trip towards the North Pole.",
+        "The team wants to understand what lives beneath the Arctic ice and how climate change is affecting it. This region is warming three to four times faster than the rest of the planet, so what happens here touches the whole world.",
+        "A well runs through the bottom of the hull, giving scientists direct access to the water under the ice so they can study the species that live there. The oceanographer leading the mission, the Canadian Marcel Babin, previously worked for France's national research agency CNRS.",
+        "This is the first time the station has been placed in the ice for an entire winter. The crew is watching one weak point closely: the rudder, which must move when the ice shifts. Beyond the ice, the scientists say, their greatest worry is simply the ordinary accidents of daily life on a small vessel."
       ],
       "french": {
-        "headline": "Après la pluie, les agriculteurs changent leurs plans",
-        "summary": [
-          "Ce printemps, il a beaucoup plu. Les champs étaient trop humides, donc les agriculteurs ont semé plus tard.",
-          "Maintenant, ils choisissent des plantes qui poussent vite. L'année prochaine, ils veulent cultiver plus de variétés."
+        "headline": "Un laboratoire français passe l'hiver prisonnier des glaces de l'Arctique",
+        "level": "A2-B1",
+        "body": [
+          "Une station de recherche française dérive dans l'océan Arctique, prise dans la glace de mer. Elle va y passer tout l'hiver. La station s'appelle Tara Polaris I. Elle a la forme d'un igloo et elle est à la fois un bateau et un laboratoire.",
+          "Elle a été construite dans la ville de Cherbourg et elle est partie de Lorient en juillet pour son premier voyage vers le pôle Nord. L'équipe de scientifiques veut comprendre ce qui vit sous la glace et comment le changement climatique change la région.",
+          "Cette zone se réchauffe trois à quatre fois plus vite que le reste de la planète. Un puits traverse le bas du bateau. Grâce à lui, les chercheurs peuvent atteindre l'eau sous la glace et observer les animaux qui y vivent.",
+          "Le chef de la mission est Marcel Babin, un océanographe canadien qui a travaillé pour le CNRS en France. C'est la première fois que la station est placée dans la glace pour tout un hiver. L'équipe surveille un point faible : le gouvernail, qui doit bouger quand la glace se déplace.",
+          "Pour les scientifiques, le plus grand danger n'est peut-être pas la glace. C'est plutôt un petit accident de la vie quotidienne sur un bateau."
         ],
         "vocab": [
-          { "fr": "un agriculteur", "en": "a farmer" },
-          { "fr": "semer", "en": "to sow" },
-          { "fr": "un champ", "en": "a field" },
-          { "fr": "pousser", "en": "to grow (plants)" }
+          { "fr": "la glace", "en": "the ice" },
+          { "fr": "un laboratoire", "en": "a laboratory" },
+          { "fr": "un puits", "en": "a well / a shaft" },
+          { "fr": "se réchauffer", "en": "to warm up" },
+          { "fr": "le gouvernail", "en": "the rudder" },
+          { "fr": "un hiver", "en": "a winter" }
+        ]
+      }
+    },
+    {
+      "section": "Health",
+      "headline": "In France, AI voices and robots are being tested to comfort people with Alzheimer's",
+      "dek": "Care homes in France are trying AI tools to calm and stimulate people with Alzheimer's, and asking where the line between machine and human care should be drawn.",
+      "source": "France 24",
+      "url": "https://www.france24.com/fr/info-en-continu/20260919-compagnon-artificiel-robot-stimulateur-l-ia-au-chevet-des-malades-d-alzheimer",
+      "image": "",
+      "image_alt": "",
+      "image_credit": "",
+      "body": [
+        "In a care home in southern France, an 83-year-old woman with Alzheimer's disease picks up a phone and hears the voice of her grandson, Bastien. The voice sounds real, but it is not her grandson speaking: it is an artificial intelligence system called Livana that has been trained to sound like him.",
+        "Livana is being tested in the protected unit of the EHPAD in Septfonds, in the Tarn-et-Garonne region. Families and the home's psychologist fill the system with happy details of a person's life — family, work, passions — so it can hold a natural conversation. None of the audio is saved.",
+        "Around 1.4 million people in France live with Alzheimer's disease. Nicolas Raulin, the tool's creator, had the idea after a relative was diagnosed. Seven of the 29 residents with Alzheimer's at this home trial the system. Staff say it calms people in moments of agitation without medication and helps when the team is short-handed.",
+        "Researchers in Paris are exploring a different approach. At the Broca living lab, older people with dementia meet friendly robots, including Miroki, a cartoon-like humanoid, and Paro, a therapeutic baby seal. The machines can soothe a person or draw out lost memories and speech, but the researchers are clear: robots are tools, and a human therapist must always lead.",
+        "Everyone involved is careful not to overstate the promise. The home's director says Livana \"will never replace the professional\", and the researchers insist that AI \"will never replace the links between humans\"."
+      ],
+      "french": {
+        "headline": "En France, des voix et des robots d'IA pour aider les malades d'Alzheimer",
+        "level": "A2-B1",
+        "body": [
+          "Dans une maison de retraite du sud de la France, une femme de 83 ans qui a la maladie d'Alzheimer prend un téléphone. Elle entend la voix de son petit-fils, Bastien. La voix semble réelle, mais ce n'est pas son petit-fils qui parle : c'est une intelligence artificielle (IA) appelée Livana, entraînée pour imiter sa voix.",
+          "Livana est testée dans l'unité protégée de l'EHPAD de Septfonds, dans le Tarn-et-Garonne. Les familles et la psychologue de la maison donnent au système de bons moments de la vie du malade : la famille, le travail, les passions. L'IA peut alors tenir une conversation naturelle. Aucun son n'est conservé.",
+          "Environ 1,4 million de personnes en France ont la maladie d'Alzheimer. Le créateur de Livana, Nicolas Raulin, a eu cette idée après le diagnostic d'une personne de sa famille. Sept malades sur les vingt-neuf de cet établissement essaient le système. Le personnel dit que l'IA calme les résidents pendant les moments d'agitation, sans médicament.",
+          "Des chercheurs à Paris étudient une autre méthode. Dans le laboratoire Broca, des personnes âgées rencontrent des robots amicaux, comme Miroki, un petit robot orange, et Paro, un bébé phoque thérapeutique. Ces machines peuvent calmer une personne ou faire revenir de vieux souvenirs.",
+          "Mais les chercheurs sont clairs : les robots sont des outils, et un thérapeute humain doit toujours diriger la séance. La directrice de la maison dit que Livana \"ne remplacera jamais le professionnel\". Les chercheurs ajoutent que l'IA \"ne remplacera jamais les liens entre les humains\"."
+        ],
+        "vocab": [
+          { "fr": "un EHPAD (une maison de retraite)", "en": "a care home" },
+          { "fr": "un petit-fils", "en": "a grandson" },
+          { "fr": "imiter", "en": "to imitate" },
+          { "fr": "calmer (apaiser)", "en": "to calm / to soothe" },
+          { "fr": "un robot", "en": "a robot" },
+          { "fr": "remplacer", "en": "to replace" }
         ]
       }
     }
