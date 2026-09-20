@@ -1,0 +1,106 @@
+{
+  "sample": true,
+  "site_title": "Le Petit Pixel",
+  "date": "2026-09-20",
+  "generated_at": "2026-09-20T07:00:00+05:30",
+  "lesson": {
+    "title": "Expliquer avec parce que, donc et c'est pourquoi",
+    "explanation": [
+      "Use parce que to give a cause, and donc or c'est pourquoi to show the result. The cause comes first with donc; it can come second with parce que."
+    ],
+    "examples": [
+      { "fr": "Je reste à la maison parce qu'il pleut.", "en": "I'm staying home because it's raining." },
+      { "fr": "Il pleut, donc je reste à la maison.", "en": "It's raining, so I'm staying home." },
+      { "fr": "Il pleut. C'est pourquoi je reste à la maison.", "en": "It's raining. That's why I'm staying home." }
+    ],
+    "exercise": {
+      "question": "Complète : Elle est fatiguée, ___ elle se couche tôt.",
+      "answer": "donc (ou : c'est pourquoi elle se couche tôt)"
+    }
+  },
+  "stories": [
+    {
+      "section": "Culture",
+      "headline": "Neighbourhood libraries are becoming the new town squares",
+      "dek": "Book loans are flat, but visits are up. People come for the quiet, the warmth and each other.",
+      "source": "Sample Source",
+      "url": "https://example.com/",
+      "image": "",
+      "image_alt": "",
+      "image_credit": "",
+      "body": [
+        "Across the country, local libraries report something unexpected. Fewer people borrow books than ten years ago, yet more people walk through the doors every week.",
+        "Librarians say the change is simple. Visitors now come to work on laptops, attend language classes, use the printers or just sit somewhere warm that does not ask them to buy anything.",
+        "Councils are responding by moving shelves aside to make room for meeting tables and small workshop spaces. Some branches now stay open into the evening for the first time."
+      ],
+      "french": {
+        "headline": "Les bibliothèques de quartier changent",
+        "summary": [
+          "Aujourd'hui, les gens empruntent moins de livres. Mais ils visitent la bibliothèque plus souvent.",
+          "Ils viennent pour travailler, pour apprendre une langue ou pour rester au chaud. Donc les villes changent les salles : il y a plus de tables et moins d'étagères."
+        ],
+        "vocab": [
+          { "fr": "emprunter", "en": "to borrow" },
+          { "fr": "une étagère", "en": "a shelf" },
+          { "fr": "au chaud", "en": "somewhere warm" },
+          { "fr": "un quartier", "en": "a neighbourhood" }
+        ]
+      }
+    },
+    {
+      "section": "Technology",
+      "headline": "Cheap solar panels change how villages plan their power",
+      "dek": "Small communities are skipping the grid and building their own.",
+      "source": "Sample Source",
+      "url": "https://example.com/",
+      "image": "",
+      "image_alt": "",
+      "image_credit": "",
+      "body": [
+        "In several remote regions, villages are choosing rooftop solar with shared batteries instead of waiting for a grid connection that may never arrive.",
+        "Falling panel prices are the main reason. A system that once needed a large subsidy can now be paid off by a group of households within a few years.",
+        "Engineers warn that maintenance is the real test. Panels last for decades, but batteries and inverters need trained people nearby to fix them."
+      ],
+      "french": {
+        "headline": "Des villages produisent leur électricité",
+        "summary": [
+          "Les panneaux solaires coûtent moins cher. C'est pourquoi des villages installent leur propre système.",
+          "Ils n'attendent plus le réseau électrique. Mais il faut des techniciens pour réparer les batteries."
+        ],
+        "vocab": [
+          { "fr": "un panneau solaire", "en": "a solar panel" },
+          { "fr": "le réseau", "en": "the grid" },
+          { "fr": "réparer", "en": "to repair" },
+          { "fr": "coûter moins cher", "en": "to cost less" }
+        ]
+      }
+    },
+    {
+      "section": "Environment",
+      "headline": "A wet spring is changing what farmers plant this autumn",
+      "dek": "After months of rain, growers are switching crops to protect their income.",
+      "source": "Sample Source",
+      "url": "https://example.com/",
+      "image": "",
+      "image_alt": "",
+      "image_credit": "",
+      "body": [
+        "Heavy spring rain left many fields too wet to sow on time. Farmers who planned one crop are now choosing another that can still ripen before the first frost.",
+        "Agricultural advisers recommend faster-growing varieties and better drainage. Several growers also say they will spread their risk across more crops next year."
+      ],
+      "french": {
+        "headline": "Après la pluie, les agriculteurs changent leurs plans",
+        "summary": [
+          "Ce printemps, il a beaucoup plu. Les champs étaient trop humides, donc les agriculteurs ont semé plus tard.",
+          "Maintenant, ils choisissent des plantes qui poussent vite. L'année prochaine, ils veulent cultiver plus de variétés."
+        ],
+        "vocab": [
+          { "fr": "un agriculteur", "en": "a farmer" },
+          { "fr": "semer", "en": "to sow" },
+          { "fr": "un champ", "en": "a field" },
+          { "fr": "pousser", "en": "to grow (plants)" }
+        ]
+      }
+    }
+  ]
+}

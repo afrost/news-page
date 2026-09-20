@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<meta name="referrer" content="no-referrer">
+<title>Le Petit Pixel</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%23000'/%3E%3Crect x='2' y='2' width='4' height='4' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #ffffff;
+    --ink: #000000;
+    --text: #2e2e2e;
+    --muted: #666666;
+    --hair: #d9d9d9;
+    --wash: #f2f2f2;
+    --s: 4px; /* one "pixel" for corners and rules */
+    --pixel: "Pixelify Sans", "Courier New", monospace;
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--text);
+    font-family: var(--serif);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
+             env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+  }
+
+  .wrap {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 0 1.25rem 4rem;
+  }
+
+  a { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+  /* Stepped "pixel" corners, used on images and panels */
+  .pixel-frame {
+    clip-path: polygon(
+      0 calc(var(--s) * 2), var(--s) calc(var(--s) * 2), var(--s) var(--s), calc(var(--s) * 2) var(--s), calc(var(--s) * 2) 0,
+      calc(100% - var(--s) * 2) 0, calc(100% - var(--s) * 2) var(--s), calc(100% - var(--s)) var(--s), calc(100% - var(--s)) calc(var(--s) * 2), 100% calc(var(--s) * 2),
+      100% calc(100% - var(--s) * 2), calc(100% - var(--s)) calc(100% - var(--s) * 2), calc(100% - var(--s)) calc(100% - var(--s)), calc(100% - var(--s) * 2) calc(100% - var(--s)), calc(100% - var(--s) * 2) 100%,
+      calc(var(--s) * 2) 100%, calc(var(--s) * 2) calc(100% - var(--s)), var(--s) calc(100% - var(--s)), var(--s) calc(100% - var(--s) * 2), 0 calc(100% - var(--s) * 2)
+    );
+  }
+
+  /* Masthead */
+  .masthead { padding-top: 2.25rem; }
+
+  .masthead h1 {
+    margin: 0;
+    font-family: var(--pixel);
+    font-weight: 700;
+    font-size: clamp(2.75rem, 12vw, 4.75rem);
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  /* The cursor blinks a few times on load, then rests */
+  .masthead h1::after {
+    content: "";
+    display: inline-block;
+    width: 0.38em;
+    height: 0.72em;
+    margin-left: 0.14em;
+    background: var(--ink);
+    animation: blink 0.9s steps(1) 4;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .dates { margin: 1rem 0 0; line-height: 1.35; }
+  .dates .date-en { display: block; color: var(--text); font-size: 1.05rem; }
+  .dates .date-fr { display: block; color: var(--muted); font-style: italic; font-size: 1.05rem; }
+
+  .pixel-rule {
+    height: var(--s);
+    margin: 1.5rem 0 2rem;
+    background: repeating-linear-gradient(90deg, var(--ink) 0 var(--s), transparent var(--s) calc(var(--s) * 2));
+  }
+
+  /* Notices */
+  .notice {
+    margin: 0 0 2rem;
+    padding: 0.75rem 1rem;
+    background: var(--wash);
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Lesson */
+  .lesson {
+    margin: 0 0 3rem;
+    padding: 1.25rem 1.25rem 1.5rem;
+    background: var(--wash);
+  }
+  .lesson h2 {
+    margin: 0 0 0.25rem;
+    font-family: var(--pixel);
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .lesson h3 { margin: 0 0 0.75rem; font-size: 1.15rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
+  .lesson p { margin: 0 0 1rem; }
+  .examples { list-style: none; margin: 0 0 1.25rem; padding: 0; }
+  .examples li { margin: 0 0 0.6rem; }
+  .examples .fr { display: block; color: var(--ink); font-weight: 600; }
+  .examples .en { display: block; color: var(--muted); font-style: italic; font-size: 1rem; }
+  .exercise { margin: 0 0 0.5rem; color: var(--ink); }
+  .lesson details summary { cursor: pointer; font-family: var(--pixel); font-size: 1.05rem; color: var(--ink); padding: 0.4rem 0; }
+  .lesson details p { margin: 0.25rem 0 0; }
+
+  /* Stories */
+  .story + .story {
+    margin-top: 2.75rem;
+    padding-top: 2.75rem;
+    border-top: 1px solid var(--hair);
+  }
+
+  .photo { margin: 0 0 0.6rem; }
+  .photo-frame { aspect-ratio: 16 / 9; background: var(--wash); overflow: hidden; }
+  .photo-frame img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .photo figcaption { margin-top: 0.4rem; color: var(--muted); font-size: 0.85rem; line-height: 1.3; }
+
+  .story-title {
+    margin: 1.1rem 0 0.6rem;
+    font-family: var(--pixel);
+    font-weight: 600;
+    font-size: 1.7rem;
+    line-height: 1.12;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .story--lead .story-title { font-size: 2.15rem; line-height: 1.08; }
+
+  .dek { margin: 0 0 0.9rem; font-size: 1.25rem; line-height: 1.4; font-style: italic; color: var(--text); }
+
+  .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.75rem; margin: 0 0 1.4rem; font-size: 0.95rem; color: var(--muted); }
+  .meta .section { font-family: var(--pixel); font-size: 1.05rem; color: var(--ink); }
+  .meta .source::before {
+    content: "";
+    display: inline-block;
+    width: var(--s);
+    height: var(--s);
+    margin-right: 0.75rem;
+    vertical-align: middle;
+    background: var(--ink);
+  }
+  .meta .section:empty + .source::before { display: none; }
+
+  .body p { margin: 0 0 1.1em; max-width: 36rem; }
+  .original { margin: 0.25rem 0 1.5rem; font-size: 0.95rem; color: var(--muted); }
+
+  /* French brief */
+  .fr-brief { background: var(--wash); }
+  .fr-brief summary {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.9rem 1.1rem;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--pixel);
+    font-size: 1.1rem;
+    color: var(--ink);
+  }
+  .fr-brief summary::-webkit-details-marker { display: none; }
+  .fr-brief summary::after { content: "+"; margin-left: auto; font-size: 1.5rem; line-height: 1; }
+  .fr-brief[open] summary::after { content: "\2212"; }
+  .fr-brief .level { color: var(--muted); font-size: 0.95rem; }
+  .fr-body { padding: 0 1.1rem 1.25rem; }
+  .fr-body h3 { margin: 0 0 0.6rem; font-family: var(--pixel); font-weight: 600; font-size: 1.3rem; line-height: 1.15; color: var(--ink); }
+  .fr-body p { margin: 0 0 1.1rem; }
+  .vocab { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 0.6rem 1.25rem; }
+  .vocab div { min-width: 0; }
+  .vocab dt { color: var(--ink); font-weight: 600; }
+  .vocab dd { margin: 0; color: var(--muted); font-style: italic; font-size: 1rem; }
+
+  .foot { margin-top: 3.5rem; color: var(--muted); font-size: 0.9rem; }
+
+  @media (min-width: 720px) {
+    body { font-size: 1.1875rem; }
+    .story-title { font-size: 1.9rem; }
+    .story--lead .story-title { font-size: 2.6rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .masthead h1::after { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <h1 id="site-title">Le Petit Pixel</h1>
+    <p class="dates"><span class="date-en" id="date-en"></span><span class="date-fr" id="date-fr" lang="fr"></span></p>
+  </header>
+  <div class="pixel-rule" aria-hidden="true"></div>
+
+  <main id="main" aria-live="polite">
+    <p class="notice">Loading today's edition.</p>
+  </main>
+
+  <footer class="foot" id="foot"></footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var DATA_URL = "data/latest.json";
+  var main = document.getElementById("main");
+
+  /* ---------- helpers (everything is built with textContent, never innerHTML) ---------- */
+
+  function el(tag, attrs) {
+    var node = document.createElement(tag);
+    if (attrs) {
+      Object.keys(attrs).forEach(function (k) {
+        var v = attrs[k];
+        if (v === null || v === undefined || v === false) return;
+        if (k === "class") node.className = v;
+        else if (k === "text") node.textContent = v;
+        else node.setAttribute(k, v === true ? "" : v);
+      });
+    }
+    for (var i = 2; i < arguments.length; i++) {
+      var kid = arguments[i];
+      if (kid === null || kid === undefined) continue;
+      node.append(kid);
+    }
+    return node;
+  }
+
+  function safeUrl(u) {
+    try {
+      var url = new URL(u);
+      return (url.protocol === "https:" || url.protocol === "http:") ? url.href : "";
+    } catch (e) { return ""; }
+  }
+
+  function paragraphs(v) {
+    if (Array.isArray(v)) return v.filter(Boolean).map(String);
+    if (typeof v === "string") return v.split(/\n{2,}/).map(function (s) { return s.trim(); }).filter(Boolean);
+    return [];
+  }
+
+  function parseDay(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || "");
+    return m ? new Date(+m[1], +m[2] - 1, +m[3]) : new Date();
+  }
+
+  function sameDay(a, b) {
+    return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+  }
+
+  /* A small symmetric pixel mosaic, used when a story has no working image */
+  function hash(str) {
+    var h = 2166136261;
+    for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return (h >>> 0) || 1;
+  }
+
+  function placeholder(seed) {
+    var h = hash(seed || "petit pixel");
+    function rnd() { h ^= h << 13; h >>>= 0; h ^= h >>> 17; h ^= h << 5; h >>>= 0; return h / 4294967296; }
+    var shades = ["#000000", "#333333", "#666666", "#999999", "#d9d9d9", "#f2f2f2", "#f2f2f2", "#ffffff"];
+    var cols = 16, rows = 9, rects = "";
+    for (var r = 0; r < rows; r++) {
+      for (var c = 0; c < cols / 2; c++) {
+        var shade = shades[Math.floor(rnd() * shades.length)];
+        rects += '<rect x="' + c + '" y="' + r + '" width="1" height="1" fill="' + shade + '"/>';
+        rects += '<rect x="' + (cols - 1 - c) + '" y="' + r + '" width="1" height="1" fill="' + shade + '"/>';
+      }
+    }
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 9" preserveAspectRatio="none" shape-rendering="crispEdges">' + rects + "</svg>";
+    return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
+  }
+
+  /* ---------- renderers ---------- */
+
+  function renderPhoto(story) {
+    var fallback = placeholder(story.headline);
+    var src = safeUrl(story.image) || fallback;
+    var img = el("img", { src: src, alt: story.image_alt || "", loading: "lazy", decoding: "async" });
+    img.addEventListener("error", function () {
+      if (img.src !== fallback) img.src = fallback;
+    });
+    var fig = el("figure", { class: "photo" }, el("div", { class: "photo-frame pixel-frame" }, img));
+    if (story.image_credit && safeUrl(story.image)) fig.append(el("figcaption", { text: story.image_credit }));
+    return fig;
+  }
+
+  function renderFrench(fr) {
+    if (!fr) return null;
+    var body = el("div", { class: "fr-body", lang: "fr" });
+    if (fr.headline) body.append(el("h3", { text: fr.headline }));
+    paragraphs(fr.summary).forEach(function (p) { body.append(el("p", { text: p })); });
+    if (Array.isArray(fr.vocab) && fr.vocab.length) {
+      var dl = el("dl", { class: "vocab" });
+      fr.vocab.forEach(function (w) {
+        dl.append(el("div", null, el("dt", { text: w.fr }), el("dd", { lang: "en", text: w.en })));
+      });
+      body.append(dl);
+    }
+    return el("details", { class: "fr-brief pixel-frame" },
+      el("summary", null,
+        el("span", { text: "Lire en français" }),
+        el("span", { class: "level", text: "A2-B1" })),
+      body);
+  }
+
+  function renderStory(story, index) {
+    var art = el("article", { class: "story" + (index === 0 ? " story--lead" : "") });
+    art.append(renderPhoto(story));
+    art.append(el("h2", { class: "story-title", text: story.headline || "Untitled" }));
+    if (story.dek) art.append(el("p", { class: "dek", text: story.dek }));
+
+    var meta = el("p", { class: "meta" });
+    if (story.section) meta.append(el("span", { class: "section", text: story.section }));
+    if (story.source) meta.append(el("span", { class: "source", text: story.source }));
+    if (meta.children.length) art.append(meta);
+
+    var body = el("div", { class: "body" });
+    paragraphs(story.body).forEach(function (p) { body.append(el("p", { text: p })); });
+    art.append(body);
+
+    var link = safeUrl(story.url);
+    if (link) {
+      art.append(el("p", { class: "original" },
+        el("a", { href: link, target: "_blank", rel: "noopener noreferrer", text: "Read the original" + (story.source ? " at " + story.source : "") })));
+    }
+
+    var fr = renderFrench(story.french);
+    if (fr) art.append(fr);
+    return art;
+  }
+
+  function renderLesson(lesson) {
+    if (!lesson) return null;
+    var sec = el("section", { class: "lesson pixel-frame", "aria-labelledby": "lesson-title" });
+    sec.append(el("h2", { id: "lesson-title", lang: "fr", text: "Leçon du jour" }));
+    if (lesson.title) sec.append(el("h3", { lang: "fr", text: lesson.title }));
+    paragraphs(lesson.explanation).forEach(function (p) { sec.append(el("p", { text: p })); });
+
+    if (Array.isArray(lesson.examples) && lesson.examples.length) {
+      var ul = el("ul", { class: "examples" });
+      lesson.examples.forEach(function (ex) {
+        ul.append(el("li", null,
+          el("span", { class: "fr", lang: "fr", text: ex.fr }),
+          ex.en ? el("span", { class: "en", text: ex.en }) : null));
+      });
+      sec.append(ul);
+    }
+
+    if (lesson.exercise && lesson.exercise.question) {
+      sec.append(el("p", { class: "exercise", lang: "fr", text: lesson.exercise.question }));
+      if (lesson.exercise.answer) {
+        sec.append(el("details", null,
+          el("summary", { text: "Voir la réponse" }),
+          el("p", { lang: "fr", text: lesson.exercise.answer })));
+      }
+    }
+    return sec;
+  }
+
+  function render(data) {
+    var day = parseDay(data.date);
+
+    if (data.site_title) {
+      document.getElementById("site-title").textContent = data.site_title;
+      document.title = data.site_title;
+    }
+    document.getElementById("date-en").textContent =
+      new Intl.DateTimeFormat("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" }).format(day);
+    document.getElementById("date-fr").textContent =
+      new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long" }).format(day);
+
+    main.textContent = "";
+
+    if (data.sample) {
+      main.append(el("p", { class: "notice", text: "This is sample content so you can check the layout. Hermes replaces it with real stories." }));
+    } else if (!sameDay(day, new Date())) {
+      main.append(el("p", { class: "notice", text: "Today's edition isn't ready yet. You're reading the edition from " +
+        new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long" }).format(day) + "." }));
+    }
+
+    var lesson = renderLesson(data.lesson);
+    if (lesson) main.append(lesson);
+
+    var stories = Array.isArray(data.stories) ? data.stories : [];
+    if (!stories.length) {
+      main.append(el("p", { class: "notice", text: "This edition has no stories. Check that data/latest.json has a \"stories\" list." }));
+    }
+    stories.forEach(function (s, i) { main.append(renderStory(s, i)); });
+
+    if (data.generated_at) {
+      var t = new Date(data.generated_at);
+      if (!isNaN(t)) {
+        document.getElementById("foot").textContent = "Edition written " +
+          new Intl.DateTimeFormat("en-GB", { dateStyle: "medium", timeStyle: "short" }).format(t) + ".";
+      }
+    }
+  }
+
+  function fail(message) {
+    main.textContent = "";
+    main.append(el("p", { class: "notice", text: message }));
+  }
+
+  fetch(DATA_URL + "?t=" + Date.now(), { cache: "no-store" })
+    .then(function (res) {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.json();
+    })
+    .then(render)
+    .catch(function () {
+      fail("Couldn't load data/latest.json. If you opened this file straight from your computer, serve the folder instead (for example with python3 -m http.server). If it's on GitHub Pages, check that the file exists and is valid JSON.");
+    });
+})();
+</script>
+</body>
+</html>
