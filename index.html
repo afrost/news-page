@@ -145,7 +145,7 @@
   .photo figcaption { margin-top: 0.4rem; color: var(--muted); font-size: 0.85rem; line-height: 1.3; }
 
   .story-title {
-    margin: 1.1rem 0 0.6rem;
+    margin: 0 0 0.6rem;
     font-family: var(--display);
     font-weight: 600;
     font-size: 1.65rem;
@@ -154,6 +154,7 @@
     color: var(--ink);
     text-wrap: balance;
   }
+  .photo + .story-title { margin-top: 1.1rem; }
   .story--lead .story-title { font-size: 2.05rem; line-height: 1.12; font-weight: 700; }
 
   .dek { margin: 0 0 0.9rem; font-size: 1.25rem; line-height: 1.4; font-style: italic; color: var(--text); }
@@ -286,40 +287,15 @@
     return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
   }
 
-  /* A small symmetric pixel mosaic, used when a story has no working image */
-  function hash(str) {
-    var h = 2166136261;
-    for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
-    return (h >>> 0) || 1;
-  }
-
-  function placeholder(seed) {
-    var h = hash(seed || "my rabbit hole");
-    function rnd() { h ^= h << 13; h >>>= 0; h ^= h >>> 17; h ^= h << 5; h >>>= 0; return h / 4294967296; }
-    var shades = ["#000000", "#333333", "#666666", "#999999", "#d9d9d9", "#f2f2f2", "#f2f2f2", "#ffffff"];
-    var cols = 16, rows = 9, rects = "";
-    for (var r = 0; r < rows; r++) {
-      for (var c = 0; c < cols / 2; c++) {
-        var shade = shades[Math.floor(rnd() * shades.length)];
-        rects += '<rect x="' + c + '" y="' + r + '" width="1" height="1" fill="' + shade + '"/>';
-        rects += '<rect x="' + (cols - 1 - c) + '" y="' + r + '" width="1" height="1" fill="' + shade + '"/>';
-      }
-    }
-    var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 9" preserveAspectRatio="none" shape-rendering="crispEdges">' + rects + "</svg>";
-    return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
-  }
-
   /* ---------- renderers ---------- */
 
   function renderPhoto(story) {
-    var fallback = placeholder(story.headline);
-    var src = safeUrl(story.image) || fallback;
+    var src = safeUrl(story.image);
+    if (!src) return null;
     var img = el("img", { src: src, alt: story.image_alt || "", loading: "lazy", decoding: "async" });
-    img.addEventListener("error", function () {
-      if (img.src !== fallback) img.src = fallback;
-    });
     var fig = el("figure", { class: "photo" }, el("div", { class: "photo-frame pixel-frame" }, img));
-    if (story.image_credit && safeUrl(story.image)) fig.append(el("figcaption", { text: story.image_credit }));
+    img.addEventListener("error", function () { fig.remove(); });
+    if (story.image_credit) fig.append(el("figcaption", { text: story.image_credit }));
     return fig;
   }
 
@@ -345,7 +321,8 @@
 
   function renderStory(story, index) {
     var art = el("article", { class: "story" + (index === 0 ? " story--lead" : "") });
-    art.append(renderPhoto(story));
+    var photo = renderPhoto(story);
+    if (photo) art.append(photo);
     art.append(el("h2", { class: "story-title", text: story.headline || "Untitled" }));
     if (story.dek) art.append(el("p", { class: "dek", text: story.dek }));
 
