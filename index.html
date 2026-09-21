@@ -4,23 +4,32 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#f2f2ef">
 <meta name="referrer" content="no-referrer">
 <title>My Rabbit Hole</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%23000'/%3E%3Crect x='2' y='2' width='4' height='4' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect width='8' height='8' fill='%23000'/%3E%3Crect x='2' y='2' width='4' height='4' fill='%23f2f2ef'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #ffffff;
+    --paper: #f2f2ef;        /* slightly light grey, easy on the eyes */
     --ink: #000000;
-    --text: #2e2e2e;
-    --muted: #666666;
-    --hair: #d9d9d9;
-    --wash: #f2f2f2;
+    --text: #1a1a1a;
+    --muted: #5a5a57;
+    --hair: #d3d3cd;
+    --wash: #e6e6e1;
+
+    --blue: #2447c9;
+    --green: #157a4b;
+    --orange: #d9481c;
+    --purple: #6a3fc0;
+    --gold: #a35f00;
+    --pink: #b3266f;
+
+    --lesson-bg: #f9efc4;
     --s: 4px; /* one "pixel" for corners and rules */
-    --display: "Playfair Display", "Didot", "Bodoni MT", Georgia, "Times New Roman", serif;
+    --display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
     --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   }
 
@@ -69,9 +78,9 @@
     margin: 0;
     font-family: var(--display);
     font-weight: 700;
-    font-size: clamp(2.4rem, 10.5vw, 4.25rem);
-    line-height: 1;
-    letter-spacing: -0.015em;
+    font-size: clamp(2.3rem, 10vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
     color: var(--ink);
   }
 
@@ -80,21 +89,25 @@
     content: "";
     display: inline-block;
     width: 0.3em;
-    height: 0.62em;
+    height: 0.66em;
     margin-left: 0.14em;
-    background: var(--ink);
+    background: var(--orange);
     animation: blink 0.9s steps(1) 4;
   }
   @keyframes blink { 50% { opacity: 0; } }
 
-  .dates { margin: 1rem 0 0; line-height: 1.35; }
+  .dates { margin: 1rem 0 0; line-height: 1.4; }
   .dates .date-en { display: block; color: var(--text); font-size: 1.05rem; letter-spacing: 0.02em; }
   .dates .date-fr { display: block; color: var(--muted); font-style: italic; font-size: 1.05rem; }
 
   .pixel-rule {
     height: var(--s);
     margin: 1.5rem 0 2rem;
-    background: repeating-linear-gradient(90deg, var(--ink) 0 var(--s), transparent var(--s) calc(var(--s) * 2));
+    background: repeating-linear-gradient(90deg,
+      var(--blue) 0 4px, transparent 4px 8px,
+      var(--green) 8px 12px, transparent 12px 16px,
+      var(--orange) 16px 20px, transparent 20px 24px,
+      var(--purple) 24px 28px, transparent 28px 32px);
   }
 
   /* Notices */
@@ -107,32 +120,52 @@
     line-height: 1.5;
   }
 
-  /* Lesson */
+  /* Lesson: vocabulary of the day */
   .lesson {
     margin: 0 0 3rem;
     padding: 1.25rem 1.25rem 1.5rem;
-    background: var(--wash);
+    background: var(--lesson-bg);
   }
   .lesson h2 {
-    margin: 0 0 0.35rem;
+    margin: 0 0 0.3rem;
     font-family: var(--display);
-    font-weight: 600;
-    font-style: italic;
-    font-size: 1.5rem;
-    line-height: 1.15;
+    font-weight: 700;
+    font-size: 1.55rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
     color: var(--ink);
   }
-  .lesson h3 { margin: 0 0 0.75rem; font-size: 1.15rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
+  .lesson h3 { margin: 0 0 0.9rem; font-family: var(--display); font-size: 1.05rem; font-weight: 500; color: var(--text); line-height: 1.4; }
   .lesson p { margin: 0 0 1rem; }
-  .examples { list-style: none; margin: 0 0 1.25rem; padding: 0; }
-  .examples li { margin: 0 0 0.6rem; }
-  .examples .fr { display: block; color: var(--ink); font-weight: 600; }
-  .examples .en { display: block; color: var(--muted); font-style: italic; font-size: 1rem; }
-  .exercise { margin: 0 0 0.5rem; color: var(--ink); }
-  .lesson details summary { cursor: pointer; font-family: var(--display); font-style: italic; font-size: 1.05rem; color: var(--ink); padding: 0.4rem 0; }
-  .lesson details p { margin: 0.25rem 0 0; }
+
+  .words { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; }
+  .word {
+    --wc: var(--blue);
+    padding: 0.85rem 1rem 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    border-left: 4px solid var(--wc);
+  }
+  .word:nth-child(4n+2) { --wc: var(--green); }
+  .word:nth-child(4n+3) { --wc: var(--orange); }
+  .word:nth-child(4n+4) { --wc: var(--purple); }
+  .word p { margin: 0; }
+  .word-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.15rem 0.75rem; }
+  .word-fr { font-family: var(--display); font-weight: 700; font-size: 1.4rem; line-height: 1.25; letter-spacing: -0.01em; color: var(--ink); }
+  .word-type { font-family: var(--display); font-weight: 500; font-size: 0.75rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--wc); }
+  .word-en { margin-top: 0.15rem; font-size: 1.08rem; color: var(--ink); }
+  .word-ex { margin-top: 0.6rem; font-weight: 600; color: var(--ink); line-height: 1.5; }
+  .word-ex-en { color: var(--muted); font-style: italic; font-size: 1rem; line-height: 1.5; }
+  .word-note { margin-top: 0.45rem; font-size: 0.95rem; color: var(--muted); }
 
   /* Stories */
+  .story { --accent: var(--blue); }
+  .story.sec-tech    { --accent: var(--blue); }
+  .story.sec-env     { --accent: var(--green); }
+  .story.sec-world   { --accent: var(--orange); }
+  .story.sec-design  { --accent: var(--purple); }
+  .story.sec-econ    { --accent: var(--gold); }
+  .story.sec-culture { --accent: var(--pink); }
+
   .story + .story {
     margin-top: 2.75rem;
     padding-top: 2.75rem;
@@ -145,28 +178,28 @@
   .photo figcaption { margin-top: 0.4rem; color: var(--muted); font-size: 0.85rem; line-height: 1.3; }
 
   .story-title {
-    margin: 0 0 0.6rem;
+    margin: 0 0 0.7rem;
     font-family: var(--display);
     font-weight: 600;
-    font-size: 1.65rem;
-    line-height: 1.17;
-    letter-spacing: -0.01em;
+    font-size: 1.7rem;
+    line-height: 1.18;
+    letter-spacing: -0.022em;
     color: var(--ink);
     text-wrap: balance;
   }
   .photo + .story-title { margin-top: 1.1rem; }
-  .story--lead .story-title { font-size: 2.05rem; line-height: 1.12; font-weight: 700; }
+  .story--lead .story-title { font-size: 2.1rem; line-height: 1.12; font-weight: 700; letter-spacing: -0.028em; }
 
-  .dek { margin: 0 0 0.9rem; font-size: 1.25rem; line-height: 1.4; font-style: italic; color: var(--text); }
+  .dek { margin: 0 0 0.9rem; font-size: 1.22rem; line-height: 1.45; font-style: italic; color: var(--text); }
 
   .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.75rem; margin: 0 0 1.4rem; font-size: 0.95rem; color: var(--muted); }
   .meta .section {
-    font-family: var(--serif);
-    font-size: 0.8rem;
+    font-family: var(--display);
+    font-size: 0.78rem;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--ink);
+    color: var(--accent);
   }
   .meta .source::before {
     content: "";
@@ -175,15 +208,16 @@
     height: var(--s);
     margin-right: 0.75rem;
     vertical-align: middle;
-    background: var(--ink);
+    background: var(--accent);
   }
   .meta .section:empty + .source::before { display: none; }
 
   .body p { margin: 0 0 1.1em; max-width: 36rem; }
   .original { margin: 0.25rem 0 1.5rem; font-size: 0.95rem; color: var(--muted); }
+  .original a { text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
 
-  /* French brief */
-  .fr-brief { background: var(--wash); }
+  /* French version */
+  .fr-brief { background: #e4e6ef; background: color-mix(in srgb, var(--accent) 11%, var(--paper)); }
   .fr-brief summary {
     display: flex;
     align-items: baseline;
@@ -192,19 +226,19 @@
     cursor: pointer;
     list-style: none;
     font-family: var(--display);
-    font-style: italic;
-    font-size: 1.1rem;
+    font-weight: 500;
+    font-size: 1.05rem;
+    line-height: 1.3;
     color: var(--ink);
   }
   .fr-brief summary::-webkit-details-marker { display: none; }
-  .fr-brief summary::after { content: "+"; margin-left: auto; font-family: var(--serif); font-style: normal; font-size: 1.5rem; line-height: 1; }
+  .fr-brief summary::after { content: "+"; margin-left: auto; font-size: 1.6rem; line-height: 1; color: var(--accent); }
   .fr-brief[open] summary::after { content: "\2212"; }
-  .fr-brief .level { color: var(--muted); font-family: var(--serif); font-style: normal; font-size: 0.95rem; }
+  .fr-brief .level { color: var(--muted); font-family: var(--serif); font-weight: 400; font-size: 0.95rem; }
   .fr-body { padding: 0 1.1rem 1.25rem; }
-  .fr-body h3 { margin: 0 0 0.6rem; font-family: var(--display); font-weight: 600; font-size: 1.3rem; line-height: 1.2; color: var(--ink); }
+  .fr-body h3 { margin: 0 0 0.7rem; font-family: var(--display); font-weight: 600; font-size: 1.25rem; line-height: 1.25; letter-spacing: -0.015em; color: var(--ink); }
   .fr-body p { margin: 0 0 1.1em; max-width: 36rem; }
-  .fr-body .vocab { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--hair); }
-  .vocab { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 0.6rem 1.25rem; }
+  .vocab { margin: 1.5rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--hair); display: grid; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); gap: 0.6rem 1.25rem; }
   .vocab div { min-width: 0; }
   .vocab dt { color: var(--ink); font-weight: 600; }
   .vocab dd { margin: 0; color: var(--muted); font-style: italic; font-size: 1rem; }
@@ -213,8 +247,8 @@
 
   @media (min-width: 720px) {
     body { font-size: 1.1875rem; }
-    .story-title { font-size: 1.85rem; }
-    .story--lead .story-title { font-size: 2.5rem; }
+    .story-title { font-size: 1.9rem; }
+    .story--lead .story-title { font-size: 2.6rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -287,8 +321,21 @@
     return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
   }
 
+  /* Each section gets its own accent colour */
+  function sectionClass(name) {
+    var s = String(name || "").toLowerCase();
+    if (/tech|science|ai\b/.test(s)) return "sec-tech";
+    if (/environ|climate|nature/.test(s)) return "sec-env";
+    if (/design|architect/.test(s)) return "sec-design";
+    if (/econom|business|financ|market/.test(s)) return "sec-econ";
+    if (/cultur|art|book|film|music/.test(s)) return "sec-culture";
+    if (/world|politic|europe|africa|asia|america/.test(s)) return "sec-world";
+    return "";
+  }
+
   /* ---------- renderers ---------- */
 
+  /* A story with no image shows no picture area at all */
   function renderPhoto(story) {
     var src = safeUrl(story.image);
     if (!src) return null;
@@ -320,7 +367,11 @@
   }
 
   function renderStory(story, index) {
-    var art = el("article", { class: "story" + (index === 0 ? " story--lead" : "") });
+    var cls = "story" + (index === 0 ? " story--lead" : "");
+    var sc = sectionClass(story.section);
+    if (sc) cls += " " + sc;
+    var art = el("article", { class: cls });
+
     var photo = renderPhoto(story);
     if (photo) art.append(photo);
     art.append(el("h2", { class: "story-title", text: story.headline || "Untitled" }));
@@ -351,25 +402,23 @@
     var sec = el("section", { class: "lesson pixel-frame", "aria-labelledby": "lesson-title" });
     sec.append(el("h2", { id: "lesson-title", lang: "fr", text: "Leçon du jour" }));
     if (lesson.title) sec.append(el("h3", { lang: "fr", text: lesson.title }));
-    paragraphs(lesson.explanation).forEach(function (p) { sec.append(el("p", { text: p })); });
+    paragraphs(lesson.intro).forEach(function (p) { sec.append(el("p", { text: p })); });
 
-    if (Array.isArray(lesson.examples) && lesson.examples.length) {
-      var ul = el("ul", { class: "examples" });
-      lesson.examples.forEach(function (ex) {
-        ul.append(el("li", null,
-          el("span", { class: "fr", lang: "fr", text: ex.fr }),
-          ex.en ? el("span", { class: "en", text: ex.en }) : null));
+    if (Array.isArray(lesson.words) && lesson.words.length) {
+      var list = el("ul", { class: "words" });
+      lesson.words.forEach(function (w) {
+        if (!w || !w.fr) return;
+        var item = el("li", { class: "word" });
+        item.append(el("p", { class: "word-head" },
+          el("span", { class: "word-fr", lang: "fr", text: w.fr }),
+          w.type ? el("span", { class: "word-type", text: w.type }) : null));
+        if (w.en) item.append(el("p", { class: "word-en", text: w.en }));
+        if (w.example_fr) item.append(el("p", { class: "word-ex", lang: "fr", text: w.example_fr }));
+        if (w.example_en) item.append(el("p", { class: "word-ex-en", text: w.example_en }));
+        if (w.note) item.append(el("p", { class: "word-note", text: w.note }));
+        list.append(item);
       });
-      sec.append(ul);
-    }
-
-    if (lesson.exercise && lesson.exercise.question) {
-      sec.append(el("p", { class: "exercise", lang: "fr", text: lesson.exercise.question }));
-      if (lesson.exercise.answer) {
-        sec.append(el("details", null,
-          el("summary", { text: "Voir la réponse" }),
-          el("p", { lang: "fr", text: lesson.exercise.answer })));
-      }
+      sec.append(list);
     }
     return sec;
   }
@@ -389,7 +438,7 @@
     main.textContent = "";
 
     if (data.sample) {
-      main.append(el("p", { class: "notice", text: "This is sample content so you can check the layout. Hermes replaces it with real stories." }));
+      main.append(el("p", { class: "notice", text: "This is sample content so you can check the layout. The daily edition replaces it." }));
     } else if (!sameDay(day, new Date())) {
       main.append(el("p", { class: "notice", text: "Today's edition isn't ready yet. You're reading the edition from " +
         new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long" }).format(day) + "." }));
@@ -430,7 +479,7 @@
     .then(function (data) {
       try { render(data); }
       catch (e) {
-        throw new Error("The data loaded but a story couldn't be displayed (" + e.message + "). Check that every story has the fields listed in HERMES_TASK.md.");
+        throw new Error("The data loaded but a story couldn't be displayed (" + e.message + "). Check that every story has the fields listed in rabbit-hole-news.md.");
       }
     })
     .catch(function (err) {
